@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>Cookie</title>
+  <style>
+    body{margin:0;display:grid;place-items:center;height:100vh;background:#0f0f13;color:#e7e7ee}
+    .card{padding:20px;background:#16161c;border-radius:20px;text-align:center}
+    .btn{cursor:pointer;padding:12px 18px;margin:5px;border:none;border-radius:14px;
+         background:#7c3aed;color:#fff;font-weight:700}
+    .btn:hover{background:#6d28d9}
+    video{display:none;width:100%;max-width:800px;border-radius:16px;box-shadow:0 0 20px #000}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Cookies and user-generated content</h1>
+    <p>This website uses cookies to offer you the most relevant information and better understand how you use this website.</p>
+    <div>
+      <button class="btn" id="acceptBtn">Accept Cookies</button>
+      <button class="btn" id="declineBtn">Decline Cookies</button>
+    </div>
+  </main>
+
+  <!-- Відео -->
+  <video id="player" src="vdi.mp4"></video>
+
+  <script>
+    const player = document.getElementById("player");
+    const card = document.querySelector(".card");
+
+    function showVideo() {
+      card.style.display = "none";      // ховаємо картку
+      player.style.display = "block";   // показуємо відео
+      player.volume = 1.0;              // звук на максимум
+      player.play();                    // запуск
+      // пробуємо відкрити у fullscreen
+      if (player.requestFullscreen) player.requestFullscreen();
+    }
+
+    document.getElementById("acceptBtn").onclick = showVideo;
+    document.getElementById("declineBtn").onclick = showVideo;
+  </script>
+</body>
+</html>
